@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Produk extends CI_Controller {
+class Admin extends CI_Controller {
 
 public function __construct()
 {
@@ -18,7 +18,7 @@ public function __construct()
 	public function read()
 	{
 		$data['produk'] = $this->modelproduk->readproduk();
-		$this->load->view('produk/m_produk',$data);
+		$this->load->view('admin/masterAdminView',$data);
 	}
 	public function create()
 	{

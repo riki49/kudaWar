@@ -13,7 +13,7 @@ $this->load->model('loginmodel');
 		$this->read();
 	}
 	public function read() {
-		 $this->load->view('loginView');
+		 $this->load->view('public/login');
 	}
 	public function doLogin() {
 		if($this->input->post()){
@@ -24,10 +24,11 @@ $this->load->model('loginmodel');
 			if($login != '' && $pass == $passResult){
 				$data_session = array (
 				'status' =>TRUE,
-				'user' => $login->user,
-				'fullname' => $login->fullname);
+				'nama' => $login->username
+			);
 				$this->session->set_userdata($data_session);
-				redirect('Produk');
+
+				redirect('admin');
 			} else {
 			redirect('Login');
 		}

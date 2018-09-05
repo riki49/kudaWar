@@ -5,7 +5,7 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <?php 
-        $this->load->view('user/admin/menu')
+        $this->load->view('admin/menu')
      ?>
     <!-- /.sidebar -->
   </aside>
