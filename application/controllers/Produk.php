@@ -6,7 +6,7 @@ public function __construct()
 {
 	parent::__construct();
 	$this->load->model('modelproduk');
-	if ($this->session->userdata('isLogin') ==FALSE) {
+	if ($this->session->userdata('status') ==FALSE) {
 	redirect('');
 }
 }
