@@ -15,7 +15,6 @@
 									<h4>My Account</h4>
 									<ul>
 										<li><a href="<?php echo base_url('login') ?>">Login</a></li>
-										<li><a href="<?php echo base_url('akun') ?>"> Create Account </a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 footer-grid foot">

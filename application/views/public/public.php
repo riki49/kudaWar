@@ -1,9 +1,16 @@
-  
 <!DOCTYPE HTML>
 <html>
 <head>
   <title>kumpulan data warga</title>
 <!--css-->
+<?php
+        foreach($data as $data){
+            $merk[] = $data->merk;
+            $stok[] = (float) $data->stok;
+        }
+        $kalender = $_SESSION['kalen'];
+?>
+
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="assets/css/font-awesome.css" rel="stylesheet">
@@ -17,15 +24,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!--search jQuery-->
-	<script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 <!--search jQuery-->
 <script src="assets/js/responsiveslides.min.js"></script>
  <script>
     $(function () {
       $("#slider").responsiveSlides({
-      	auto: true,
-      	nav: true,
-      	speed: 100,
+        auto: true,
+        nav: true,
+        speed: 100,
         namespace: "callbacks",
         pager: true,
       });
@@ -41,72 +48,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- donut -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
  <script type="text/javascript">
-			      google.charts.load('current', {'packages':['corechart']});
-			      google.charts.setOnLoadCallback(drawChart);
+                  google.charts.load('current', {'packages':['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
 
-			      function drawChart() {
+                  function drawChart() {
 
-			        var data = google.visualization.arrayToDataTable([
-			          ['Task', 'Hours per Day'],
-			          ['Work',     11],
-			          ['Eat',      2],
-			          ['Commute',  2],
-			          ['Watch TV', 2],
-			          ['Sleep',    7]
-			        ]);
+                    var data = google.visualization.arrayToDataTable([
+                      ['wilayah', 'Luas'],
+                      ['RW 1', 45.5],
+                      ['RW 2', 30],
+                      ['RW 3', 20],
+                      ['RW 4', 28.8],
+                      ['RW 5', 32.4]
+                    ]);
 
-			        var options = {
-			          title: 'data wilayah'
-			        };
+                    var options = {
+                      title: 'data wilayah dalam hektar'
+                    };
 
-			        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-			        chart.draw(data, options);
-			      }
+                    chart.draw(data, options);
+                  }
  </script>
-
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
-   	
-   	google.charts.load('current', {packages: ['corechart', 'line']});
-	google.charts.setOnLoadCallback(drawBasic);
-
-	function drawBasic() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'X');
-      data.addColumn('number', 'Dogs');
-
-      data.addRows([
-        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
-        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
-        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
-        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
-        [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
-        [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
-        [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
-        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-        [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-        [66, 70], [67, 72], [68, 75], [69, 80]
-      ]);
-
-      var options = {
-        hAxis: {
-          title: 'Time'
-        },
-        vAxis: {
-          title: 'Popularity'
-        }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-   </script>
-
- 
  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -181,17 +145,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   <!-- Google Font -->
 <!-- End-rate-->
-		<div class="header">
-			<div class="header-top">
-		</div>
-			</div>
-			<div class="heder-bottom">
-				<div class="container">
-				
-				
-				</div>
-			</div>
-		</div>
+        <div class="header">
+            <div class="header-top">
+        </div>
+            </div>
+            <div class="heder-bottom">
+                <div class="container">
+                    <div class="logo-nav-left">
+                            <h1><a>kudawar<span>kumpulan data warga</span></a></h1>
+                        </div>
+                    </div>
+    <div class="header-right2">
+                        <div class="cart box_1">
+                            <p><a href="<?php echo base_url('login') ?>" class="simpleCart_empty">Login</a></p>
+                        </div>  
+                    </div>
+                
+                </div>
+            </div>
+        </div>
 
 <header class="main-header">
     <!-- Logo -->
@@ -202,20 +174,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      	<div class="logo-nav">
-						<div class="logo-nav-left">
-							<h1><a>kudawar<span>kumpulan data warga</span></a></h1>
-						</div>
-					</div>
-	<div class="header-right2">
-						<div class="cart box_1">
-							<p><a href="<?php echo base_url('login') ?>" class="simpleCart_empty">Login</a></p>
-						</div>	
-					</div>
-      
+        <div class="logo-nav">       
     </nav>
   </header>
-    
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -223,11 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-      </h1>
-    </section>
+   
 
     <!-- Main content -->
     <section class="content">
@@ -236,36 +193,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
-            <div class="inner">
-              <p>New Orders</p>
-            </div>
+   
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
-            <div class="inner">
-              <p>Bxounce Rate</p>
-            </div>
+            
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
-            <div class="inner">
-              <p>User Registrations</p>
-            </div>
+   
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
-            <div class="inner">
-              <p>Unique Visitors</p>
-            </div>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -279,22 +228,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a>
+              <li class="active"><a href="#revenue-chart" data-toggle="tab">Jumlah Warga Perwilayah</a></li>
+              <li><a href="#sales-chart" data-toggle="tab">Wilayah Desa</a>
               </li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+              <li class="pull-left header"><i class="fa fa-inbox">Statistik Desa</i></li>
             </ul>
             <div class="tab-content no-padding">
 
               <!-- Morris chart - Sales -->
               <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-              	<!-- <div id="chart_div"></div> -->
-    			<!-- <div id="piechart" style="width: 10000px; height: 10000px;"></div> -->
+                <canvas id="canvas" width="1000" height="280"></canvas>
+
+    <!--Load chart js-->
+    <script type="text/javascript" src="<?php echo base_url().'assets/chartjs/chart.min.js'?>"></script>
+    <script>
+
+            var lineChartData = {
+                labels : <?php echo json_encode($merk);?>,
+                datasets : [
+                    
+                    {
+                        fillColor: "rgba(60,141,188,0.9)",
+                        strokeColor: "rgba(60,141,188,0.8)",
+                        pointColor: "#3b8bba",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(152,235,239,1)",
+                        data : <?php echo json_encode($stok);?>
+                    }
+
+                ]
+                
+            }
+
+        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+        
+    </script>
               </div>
 
               <!-- donut -->
               <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-    			<div id="piechart" style="width: 10000px; height: 10000px;"></div>
+                <div id="piechart" style="width: 888px; height: 300px;"></div>
               </div>
             </div>
           </div>
@@ -338,44 +312,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="box-body">
 
               <div id="world-map" style="height: 300px; width: 100%;"> 
-				<!--banner-->
-				<div class="banner-w3">
-					<div class="demo-1">            
-						<div id="example1" class="core-slider core-slider__carousel example_1">
-							<div class="core-slider_viewport">
-								<div class="core-slider_list">
-									<div class="core-slider_item">
-										<img src="assets/images/1.jpg" class="img-responsive" alt="">
-									</div>
-									 <div class="core-slider_item">
-										 <img src="assets/images/3.jpg" class="img-responsive" alt="">
-									 </div>
-									<div class="core-slider_item">
-										  <img src="assets/images/2.jpg" class="img-responsive" alt="">
-									</div>
-									<div class="core-slider_item">
-										  <img src="assets/images/4.jpg" class="img-responsive" alt="">
-									</div>
-								 </div>
-							</div>
-							<div class="core-slider_nav">
-								<div class="core-slider_arrow core-slider_arrow__right"></div>
-								<div class="core-slider_arrow core-slider_arrow__left"></div>
-							</div>
-							<div class="core-slider_control-nav"></div>
-						</div>
-					</div>
-					<link href="assets/css/coreSlider.css" rel="stylesheet" type="text/css">
-					<script src="assets/js/coreSlider.js"></script>
-					<script>
-					$('#example1').coreSlider({
-					  pauseOnHover: false,
-					  interval: 3000,
-					  controlNavEnabled: true
-					});
+                <!--banner-->
+                <div class="banner-w3">
+                    <div class="demo-1">            
+                        <div id="example1" class="core-slider core-slider__carousel example_1">
+                            <div class="core-slider_viewport">
+                                <div class="core-slider_list">
+                                    <div class="core-slider_item">
+                                        <img src="assets/images/1.jpg" class="img-responsive" alt="">
+                                    </div>
+                                     <div class="core-slider_item">
+                                         <img src="assets/images/3.jpg" class="img-responsive" alt="">
+                                     </div>
+                                    <div class="core-slider_item">
+                                          <img src="assets/images/2.jpg" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="core-slider_item">
+                                          <img src="assets/images/4.jpg" class="img-responsive" alt="">
+                                    </div>
+                                 </div>
+                            </div>
+                            <div class="core-slider_nav">
+                                <div class="core-slider_arrow core-slider_arrow__right"></div>
+                                <div class="core-slider_arrow core-slider_arrow__left"></div>
+                            </div>
+                            <div class="core-slider_control-nav"></div>
+                        </div>
+                    </div>
+                    <link href="assets/css/coreSlider.css" rel="stylesheet" type="text/css">
+                    <script src="assets/js/coreSlider.js"></script>
+                    <script>
+                    $('#example1').coreSlider({
+                      pauseOnHover: false,
+                      interval: 3000,
+                      controlNavEnabled: true
+                    });
 
-					</script>
-				</div>	
+                    </script>
+                </div>  
               </div>
             </div>
           </div>
@@ -399,14 +373,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
           <!-- Calendar -->
           <div class="box box-solid bg-green-gradient">
-            <div class="box-header">
-              <i class="fa fa-calendar"></i>
+            <div class="box-header" style="padding-left: 35%">
               <h3 class="box-title">Calendar</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <!--The calendar -->
-              <div id="calendar" style="width: 100%"></div>
+               <?php 
+                if(isset($kalender)){
+                         echo $kalender;
+                }
+                 ?>
             </div>
             <!-- /.box-body -->
           </div>
@@ -423,7 +396,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  
   <div class="control-sidebar-bg"></div>
 </div>
-
 <!--content-->
 
 

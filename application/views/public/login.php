@@ -52,21 +52,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="header-right2">
 						<div class="cart box_1">
-							<p><a href="<?php echo base_url('login') ?>" class="simpleCart_empty">Login</a></p>
+							<p><a href="<?php echo base_url('') ?>" class="simpleCart_empty">back</a></p>
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--header-->
-
-		<!--banner-->
-		<div class="banner1">
-			<div class="container">
-				<h3><a href="<?php echo base_url('') ?>">Home</a> / <span>Login</span></h3>
-			</div>
-		</div>
-	<!--banner-->
 
 	<!--content-->
 		<div class="content">

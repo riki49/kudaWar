@@ -18,8 +18,22 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct(){
+		parent::__construct();
+		$this->load->model('m_grafik');
+	}
 	public function index()
 	{
-		$this->load->view('public/public');
+		$this->load->library('calendar');
+
+        $kalender =  $this->calendar->generate();
+        
+        $data = array('kalen' => $kalender);
+        $this->session->set_userdata($data);
+		$x['data']=$this->m_grafik->get_data_stok();
+		$this->load->view('public/public',$x);
+		
 	}
+
 }
