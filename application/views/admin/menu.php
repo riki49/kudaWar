@@ -19,38 +19,29 @@ $id = 1;
         <!--  -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-cc"></i> <span>Input Transaksi</span>
+            <i class="fa fa-cc"></i> <span>Urutkan Data Warga</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url("pengiriman") ?>"><i class="fa fa-circle-o"></i>+ barang keluar</a></li>
+            <li><a href="<?php echo base_url("sorting/sortingAge/$data") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
+            <!-- <li ><a href="#"><i class="fa fa-circle-o"></i> Pengembalian</a></li> -->
+            <li><a href="<?php echo base_url("sorting/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
             <!-- <li ><a href="#"><i class="fa fa-circle-o"></i> Pengembalian</a></li> -->
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-clone"></i> <span>Lihat Laporan</span>
+            <i class="fa fa-clone"></i> <span>Kelompokan data Warga</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>laporan/readUser"><i class="fa fa-circle-o"></i> Daftar Reseller</a></li>
-            <li ><a href="<?php echo base_url()?>laporan/readTransaksi"><i class="fa fa-circle-o"></i> Daftar transaksi</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-clone"></i> <span>pesan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li ><a href="<?php echo base_url()?>admin/readMail"><i class="fa fa-circle-o"></i> semua pesan </a></li>
+            <li><a href="<?php echo base_url()?>laporan/readUser"><i class="fa fa-circle-o"></i> Anak dan Remaja</a></li>
+            <li ><a href="<?php echo base_url()?>laporan/readTransaksi"><i class="fa fa-circle-o"></i> Dewasa</a></li>
           </ul>
         </li>
 

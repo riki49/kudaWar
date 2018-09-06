@@ -2,6 +2,13 @@
 <html>
 <head>
   <title>kumpulan data warga</title>
+
+  <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 <!--css-->
 <?php
         foreach($data as $data){
@@ -188,38 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-   
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-   
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
+    
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
@@ -277,24 +253,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <!-- Chat box -->
           <div class="box box-success">
             <div class="box-header">
-              <h3 class="box-title">Chat</h3>
+              <h3 class="box-title">visi</h3>
             </div>
+            <div>Terbangunnya Tata Kelola Pemerintah Desa yang Baik dan Bersih guna Mewujudkan Pemerintahan Desa yang Adil, Makmur dan Sejahtera.</div>
           </div>
           <!-- /.box (chat box) -->
 
           <!-- TO DO List -->
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">To Do List</h3>
+              <h3 class="box-title">misi</h3>
             </div>
+            <div>Melakukan Reformasi sistem kinerja Aparatur Pemerintahn Desa guna Meningkatkan kualitas Pelayanan Masyarakat;
+Menyelenggarakan Pemerintahan yang Bersih, terbebas dari Korupsi serta bentuk-bentuk Penyelenggaraan Lainnya;
+Menyelenggarakan Urusan Pemerintah Desa secara terbuka dan bertanggungjawaban sesuai dengan Peraturan Perundang-undangan;
+Meningkatkan Perekonomian Masyarakat melalui Penciptaan Lapangan Kerja seluas-luasnya dengan berbasis pada Potensi Asli Desa;
+Memberdayakan Pemerintahan , Dusun RT dan RW secara Profesional da Proposional;
+Meningkatkan Mutu Kesejahteraan Masyarakat untuk mencapai taraf kehidupan yang lebih baik dan layak.</div>
           </div>
           <!-- /.box -->
 
           <!-- quick email widget -->
           <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">Quick Email</h3>
+              <h3 class="box-title">kegiatan terkini</h3>
             </div>
+            <div>Ds.Sukamenak Kec.Margahayu Kab.Bandung 2018,
+
+Kegiatan Penghijauan Desa
+
+Sumber Anggaran Raksa Desa 2018
+
+Lokasi :  Desa Sukamenak</div>
           </div>
 
         </section>
@@ -398,6 +388,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--content-->
 
+
+
+
+<h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var lokasi_saya= {lat: -6.591778, lng: 106.805965};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: lokasi_saya
+
+        });
+        var marker = new google.maps.Marker({
+          position: lokasi_saya,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://www.google.com/maps/place/Sukamenak,+Margahayu,+Bandung,+West+Java,+Indonesia/@-6.970998,107.584687,12732m/data=!3m1!1e3!4m5!3m4!1s0x2e68e928182fa055:0x4336b4144186c7af!8m2!3d-6.971678!4d107.5845418?hl=en-US">
+    </script>
 
 <!-- footer -->
 <?php 

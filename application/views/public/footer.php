@@ -20,7 +20,7 @@
 								<div class="col-md-3 footer-grid foot">
 									<h4>Contacts</h4>
 									<ul>
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="https://www.google.co.id/maps/@-6.9717304,107.5822277,3a,75y,30.92h,87.54t/data=!3m6!1e1!3m4!1sIQSJy7NHVY3MKWqRApn3kg!2e0!7i13312!8i6656" target="blank">jalan sukamenak no 96 Gg. H. Durrahman</a></li>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="https://goo.gl/maps/gpX1cfrF3Cx" target="blank">jalan sukamenak margahayu</a></li>
 										<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i><a>+628-2317-3084-30</a></li>
 										<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:cs@pemudakhusnudzon.org"> cs@pemudakhusnudzon.org</a></li>
 										

@@ -25,15 +25,14 @@ class Welcome extends CI_Controller {
 	}
 	public function index()
 	{
+		$x['data']=$this->m_grafik->get_data_stok();
+		$this->load->view('public/public',$x);
 		$this->load->library('calendar');
 
         $kalender =  $this->calendar->generate();
         
         $data = array('kalen' => $kalender);
         $this->session->set_userdata($data);
-		$x['data']=$this->m_grafik->get_data_stok();
-		$this->load->view('public/public',$x);
-		
 	}
 
 }

@@ -1,14 +1,13 @@
-<?php 
+﻿<?php 
 $status=0;
 $nama = $_SESSION['nama'];
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Master Admin</title>
+  <title>Form tambah Warga</title>
   <!-- Tell the browser to be responsive to screen width -->
   
   <!-- Bootstrap 3.3.7 -->
@@ -44,7 +43,7 @@ $nama = $_SESSION['nama'];
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>H</b>FD</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Husnudzon</b> food</span>
+      <span class="logo-lg"><b>KudaWar</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -147,85 +146,133 @@ $nama = $_SESSION['nama'];
             </li>    
         </section>
 
-
-
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        data warga
+        Tambah Warga Baru
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('') ?>">
-        <i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">data warga</li> 
+        <li><a href="<?php echo base_url('admin') ?>"><i class="fa fa-dashboard"></i> admin</a></li>
+        <li class="active">tambah</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+<section class="content">
       <div class="row">
 
         <div class="col-xs-12">
-        <a href="<?php echo base_url()?>admin/create"><button 
-        type="button" class="btn bg-olive btn-flat margin">
-        tambah warga</button></a>
-        <a href="<?php echo base_url()?>admin/cetak/<?php echo $status;?>"><button 
-        type="button" class="btn bg-olive btn-flat margin">
-        cetak</button></a>
-                
-          <!-- /.box -->
+        <a href="<?php echo base_url()?>admin"><button type="button" class="btn bg-olive btn-flat margin">Kembali</button></a>
+            <div class="box box-info">
+            <!-- /.box-header --> 
+            <!-- form start -->
+            <form action="<?php echo base_url()?>admin/create" method="post" class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Nomer Induk Kependudukan</label>
 
-          <div class="box">
+                  <div class="col-sm-6">
+                    <input  type="text" class="form-control" name="nik"  id="success" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Nama Lengkap</label>
 
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table>
-                <thead>
-                <tr>
-                    <th class="col-md-1">NIK</th>
-                    <th class="col-md-1">Nama Lengkap</th>
-                    <th class="col-md-1">Tempat Lahir</th>
-                    <th class="col-md-1">Tanggal Lahir</th>
-                    <th class="col-md-1">alamat</th>
-                    <th class="col-md-1">RT/RW</th>
-                    <th class="col-md-1">status</th>
-                    <th class="col-md-1">Pekerjaan</th>
-                    <th class="col-md-1">Agama</th>
-                    <th class="col-md-1">Opsi</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                foreach ($dataWarga as $dataWarga) : 
-                ?>
-                    <tr>
-                        <td><?=$dataWarga->nik?></td>
-                        <td><?=$dataWarga->nama?></td>
-                        <td><?=$dataWarga->tempat?></td>
-                        <td><?= date('d F Y', strtotime($dataWarga->tanggal)) ?></td>
-                        <td><?=$dataWarga->alamat?></td>
-                        <td><?=$dataWarga->rt."/".$dataWarga->rw?></td>
-                        <td><?=$dataWarga->status?></td>
-                        <td><?=$dataWarga->pekerjaan?></td>
-                        <td><?=$dataWarga->agama?></td>
-                        <td>
-                          
-                            <a href="<?php echo base_url()?>produk/update/<?php echo $dataWarga->nik;?>" class="btn btn-warning">update</a>
-                            <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='<?php echo base_url()?>produk/delete/<?php echo $dataWarga->nik;?>'}" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                   <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
+                  <div class="col-sm-6">
+                    <input type="text" name="nama"  class="form-control" id="success" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Tempat Lahir</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="tempat"  class="form-control" id="success" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Tanggal Lahir</label>
+
+                  <div class="col-sm-6">
+                    <input type="date" name="tanggal"  class="form-control" id="success" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Kelamin</label>
+
+                  <div class="col-sm-6">
+                    <select name="kelamin" class="form-control" id="success">
+                        <option value="pria">Pria</option> 
+                        <option value="wanita">Wanita</option>    
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Alamat</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="alamat"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">RT</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="rt"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">RW</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="rw"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">Status</label>
+
+                   <div class="col-sm-6">
+                    <select name="status" class="form-control" id="success">
+                        <option value="belum menikah">Belum Kawin</option> 
+                        <option value="kawin">Kawin</option>    
+                        <option value="cerai">Cerai</option>    
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Pekerjaan</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="pekerjaan" class="form-control" id="success" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Agama</label>
+                  <div class="col-sm-6">
+                    <select name="agama" class="form-control" id="success">
+                      <option value="islam">Islam</option> 
+                      <option value="kristen">Kristen</option> 
+                      <option value="hindu">Hindu</option> 
+                      <option value="budha">Budha</option> 
+                      <option value="konghucu">Konghucu</option> 
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Action</label>
+
+                  <div class="col-sm-6">
+                    <input type="submit" class="btn bg-olive btn-flat margin" value="Simpan">
+                    <input type="reset" class="btn bg-maroon btn-flat margin" value="Ulangi">
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
+          
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -246,7 +293,6 @@ $nama = $_SESSION['nama'];
     <div class="tab-content">
       <!-- Home tab content -->
       <div class="tab-pane" id="control-sidebar-home-tab"></div>
-    </div>
   </aside>
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
