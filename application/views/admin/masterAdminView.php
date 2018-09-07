@@ -1,6 +1,7 @@
 <?php 
-$status=0;
+$status= $_SESSION['status'];
 $nama = $_SESSION['nama'];
+$today = new DateTime('today');
 ?>
 
 <!DOCTYPE html>
@@ -161,8 +162,8 @@ $nama = $_SESSION['nama'];
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('') ?>">
-        <i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="<?php echo base_url('admin') ?>">
+        <i class="fa fa-dashboard"></i> Admin</a></li>
         <li class="active">data warga</li> 
       </ol>
     </section>
@@ -197,6 +198,7 @@ $nama = $_SESSION['nama'];
                     <th class="col-md-1">status</th>
                     <th class="col-md-1">Pekerjaan</th>
                     <th class="col-md-1">Agama</th>
+                    <th class="col-md-1">umur</th>
                     <th class="col-md-1">Opsi</th>
                 </tr>
                 </thead>

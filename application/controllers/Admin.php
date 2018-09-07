@@ -6,7 +6,7 @@ public function __construct()
 {
 	parent::__construct();
 	$this->load->model('dataWargaModel');
-	$this->load->model('modelproduk');
+	$this->load->model('sortingModel');
 	if ($this->session->userdata('status') ==FALSE) {
 	redirect('');
 }
@@ -56,8 +56,13 @@ public function __construct()
 
 	public function cetak($status){
 		ob_start();
-		$data['report'] = $this->dataWargaModel->read();
-		// $data['report'] = $this->modelproduk->readproduk();
+		$data;
+		if ($status == 0) {
+			$data['report'] = $this->dataWargaModel->read();
+		} else if ($status == 1) {
+			$data['report'] = $this->sortingModel->sortingAge();
+		}
+		
 		$this->load->view('admin/printWarga', $data);
 		$html = ob_get_contents();
         ob_end_clean();
@@ -93,6 +98,10 @@ public function __construct()
 		}else{
 			$this->load->view('user/admin/formEditProfil');
 		}
+	}
+
+	function hitungUmur (){ 
+
 	}
 }
 

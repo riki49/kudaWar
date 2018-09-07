@@ -31,7 +31,7 @@ class Welcome extends CI_Controller {
 
         $kalender =  $this->calendar->generate();
         
-        $data = array('kalen' => $kalender);
+        $data = array('kalender' => $kalender);
         $this->session->set_userdata($data);
 	}
 

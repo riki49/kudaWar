@@ -25,8 +25,9 @@ class Sorting extends CI_Controller {
 
 	function sortingAge() {
 		$data['dataWarga'] = $this->sortingModel->sortingAge();
-		// var_dump($data);
-		$this->load->view('admin/masterAdminView', $data, $status = 1);
+		$status = array('status' => 1);
+		$this->session->set_userdata($status);
+		$this->load->view('admin/masterAdminView', $data);
 	}
 	public function sortingPlace () {
 		echo "ini berdasar alamat";

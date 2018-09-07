@@ -15,7 +15,7 @@
             $merk[] = $data->merk;
             $stok[] = (float) $data->stok;
         }
-        $kalender = $_SESSION['kalen'];
+        // $kalender = $_SESSION['kalender'];
 ?>
 
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
@@ -367,7 +367,7 @@ Lokasi :  Desa Sukamenak</div>
               <h3 class="box-title">Calendar</h3>
                <?php 
                 if(isset($kalender)){
-                         echo $kalender;
+                    echo $kalender;
                 }
                  ?>
             </div>

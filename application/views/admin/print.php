@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-<style>
+  <title>Laporan data Warga</title>
 <style>
 table {
     font-family: arial, sans-serif;
@@ -24,7 +24,6 @@ th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-</style>
 </style>
 </head>
 <body> 
