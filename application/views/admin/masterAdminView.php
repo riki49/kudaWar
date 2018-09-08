@@ -1,7 +1,10 @@
 <?php 
-$status= $_SESSION['status'];
+$cetak = $_SESSION['cetak'];
 $nama = $_SESSION['nama'];
 $today = new DateTime('today');
+$CI =& get_instance();
+$CI->load->library('hitungUmur');
+$total =0;
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +109,6 @@ $today = new DateTime('today');
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
             <!--  -->
             <li class="treeview">
               <a href="#">
@@ -116,8 +118,8 @@ $today = new DateTime('today');
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url("sorting/sortingAge") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
-                <li><a href="<?php echo base_url("sorting/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
+                <li><a href="<?php echo base_url("kelolaCetak/sortingAge") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
+                <li><a href="<?php echo base_url("kelolaCetak/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
               </ul>
             </li>
 
@@ -129,23 +131,22 @@ $today = new DateTime('today');
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url()?>laporan/readUser"><i class="fa fa-circle-o"></i> Anak dan Remaja</a></li>
-                <li ><a href="<?php echo base_url()?>laporan/readTransaksi"><i class="fa fa-circle-o"></i> Dewasa</a></li>
+                <li><a href="<?php echo base_url()?>kelolaCetak/kelompokMuda"><i class="fa fa-circle-o"></i> Anak dan Remaja</a></li>
+                <li ><a href="<?php echo base_url()?>kelolaCetak/kelompokDewasa"><i class="fa fa-circle-o"></i> Dewasa</a></li>
               </ul>
             </li>
 
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-gears"></i> <span>Pengaturan</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li ><a href="<?php echo base_url('admin/editDashboard') ?>"><i class="fa fa-circle-o"></i>Edit Dashboard Public</a></li>
-                <li ><a href="<?php echo base_url()?>admin/editProfil"><i class="fa fa-circle-o"></i>Edit akun</a></li>
-              </ul>
-            </li>    
+            <!-- <li class="treeview"> -->
+              <!-- <a href="#"> -->
+                <!-- <i class="fa fa-gears"></i> <span>Pengaturan</span> -->
+                <!-- <span class="pull-right-container"> -->
+                  <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                <!-- </span> -->
+              <!-- </a> -->
+              <!-- <ul class="treeview-menu"> -->
+                <!-- <li ><a href="<?php echo base_url()?>admin/editProfil"><i class="fa fa-circle-o"></i>Edit akun</a></li> -->
+              <!-- </ul> -->
+            <!-- </li>     -->
         </section>
 
 
@@ -176,30 +177,30 @@ $today = new DateTime('today');
         <a href="<?php echo base_url()?>admin/create"><button 
         type="button" class="btn bg-olive btn-flat margin">
         tambah warga</button></a>
-        <a href="<?php echo base_url()?>admin/cetak/<?php echo $status;?>"><button 
+        <a href="<?php echo base_url()?>admin/cetak/<?php echo $cetak;?>"><button 
         type="button" class="btn bg-olive btn-flat margin">
         cetak</button></a>
                 
           <!-- /.box -->
 
           <div class="box">
+            <div class="box-header">
 
             <!-- /.box-header -->
-            <div class="box-body">
-              <table>
+            <!-- <div class="box-body"> -->
+              <table >
                 <thead>
                 <tr>
                     <th class="col-md-1">NIK</th>
-                    <th class="col-md-1">Nama Lengkap</th>
-                    <th class="col-md-1">Tempat Lahir</th>
-                    <th class="col-md-1">Tanggal Lahir</th>
+                    <th class="col-md-1">Nama</th>
+                    <th class="col-md-1">kelamin</th>
+                    <th class="col-md-1">TTL</th>
                     <th class="col-md-1">alamat</th>
                     <th class="col-md-1">RT/RW</th>
                     <th class="col-md-1">status</th>
                     <th class="col-md-1">Pekerjaan</th>
                     <th class="col-md-1">Agama</th>
-                    <th class="col-md-1">umur</th>
-                    <th class="col-md-1">Opsi</th>
+                    <th class="col-md-1">pilihan</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -209,22 +210,24 @@ $today = new DateTime('today');
                     <tr>
                         <td><?=$dataWarga->nik?></td>
                         <td><?=$dataWarga->nama?></td>
-                        <td><?=$dataWarga->tempat?></td>
-                        <td><?= date('d F Y', strtotime($dataWarga->tanggal)) ?></td>
+                        <td><?=$dataWarga->kelamin?></td>
+                        <td><?=$dataWarga->tempat.",".date('d/m/Y', strtotime($dataWarga->tanggal))?></td>
                         <td><?=$dataWarga->alamat?></td>
                         <td><?=$dataWarga->rt."/".$dataWarga->rw?></td>
                         <td><?=$dataWarga->status?></td>
                         <td><?=$dataWarga->pekerjaan?></td>
                         <td><?=$dataWarga->agama?></td>
                         <td>
-                          
-                            <a href="<?php echo base_url()?>produk/update/<?php echo $dataWarga->nik;?>" class="btn btn-warning">update</a>
-                            <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='<?php echo base_url()?>produk/delete/<?php echo $dataWarga->nik;?>'}" class="btn btn-danger">Hapus</a>
+                          <?php $total = $total + 1; ?>
+
+                            <a href="<?php echo base_url()?>admin/update/<?php echo $dataWarga->nik;?>" class="btn btn-warning">update</a>
+                            <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='<?php echo base_url()?>admin/delete/<?php echo $dataWarga->nik;?>'}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                    <?php endforeach; ?>
                 </tbody>
               </table>
+              <div align="right" style="padding-right: 40%"><?php echo "jumlah warga : ".$total; ?></div>
             </div>
             <!-- /.box-body -->
           </div>

@@ -30,18 +30,18 @@ tr:nth-child(even) {
 </head>
 <body> 
   <div align="center">
-    <img src="<?php echo base_url() ?>/assets/images/b2.jpg" width="460" >
+    <img src="<?php echo base_url() ?>/assets/images/ok.png" width="100" >
   </div>
     
 <hr>
-<h3 align="center">Laporan Transaksi
+<h3 align="center">Laporan Warga Desa
 </h3><br>
 <table id="t01" align="center">
   <tr align="center">
     <th >Nomer Induk </th>
     <th >Nama Lengkap</th>
-    <th >Tempat/Tanggal Lahir</th>
     <th >kelamin</th>
+    <th >Tempat/Tanggal Lahir</th>
     <th >Nama Kampung</th>
     <th >RW/RW</th>
     <th >status</th>
@@ -55,8 +55,8 @@ tr:nth-child(even) {
   <tr>
   <td><?php echo $key->nik?></td>
   <td><?php echo $key->nama?></td>
-  <td><?php echo $key->tempat."/".$key->tanggal?></td>
   <td><?php echo $key->kelamin?></td>
+  <td><?php echo $key->tempat."/".$key->tanggal?></td>
   <td><?php echo $key->alamat?></td>
   <td><?php echo $key->rt."/".$key->rw?></td>
   <td><?php echo $key->status?></td>

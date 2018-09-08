@@ -22,24 +22,24 @@ class DataWargaModel extends CI_Model{
 		$query = $this->db->get('warga');
 		return $query -> result();
 	}
-	function detailproduk($id){
-		$this->db->where('id',$id);
-		$query=$this->db->get('produk');
+	function detailWarga($nik){
+		$this->db->where('nik',$nik);
+		$query=$this->db->get('warga');
 		return $query->row();
 	}
-	function updateproduk ($id){
+	function warga ($nik){
 		$data=array(
 			'nama' => $this->input->post ('nama'),
 			'level' => $this->input->post ('level'),
 			'harga' => $this->input->post ('harga'),
-			'tgl_produksi' => $this->input->post ('tgl_produksi'),
+			'warga' => $this->input->post ('warga'),
 			'jumlah' => $this->input->post ('jumlah')
 		);
-		$this->db->where('id',$id);
-		$this->db->update('produk',$data);
+		$this->db->where('nik',$nik);
+		$this->db->update('warga',$data);
 	}
-	function deleteproduk ($id){
-		$this->db->where('id',$id);
-		$this->db->delete('produk');
+	function delete ($nik){
+		$this->db->where('nik',$nik);
+		$this->db->delete('warga');
 	}
 }

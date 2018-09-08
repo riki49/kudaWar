@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Sorting extends CI_Controller {
+class KelolaCetak extends CI_Controller {
 
 	public function __construct() {
 	parent::__construct();
-	$this->load->model('sortingModel');
+	$this->load->model('cetakModel');
 		// $dataBaru = $this->sorting($data);
 	}
 
@@ -24,12 +24,22 @@ class Sorting extends CI_Controller {
 	}
 
 	function sortingAge() {
-		$data['dataWarga'] = $this->sortingModel->sortingAge();
-		$status = array('status' => 1);
+		$data['dataWarga'] = $this->cetakModel->sortingAge();
+		$status = array('cetak' => 1);
 		$this->session->set_userdata($status);
 		$this->load->view('admin/masterAdminView', $data);
 	}
 	public function sortingPlace () {
-		echo "ini berdasar alamat";
+		$data['dataWarga'] = $this->cetakModel->sortingPlace();
+		$status = array('cetak' => 2);
+		$this->session->set_userdata($status);
+		$this->load->view('admin/masterAdminView', $data);
+	}
+
+	public function kelompokDewasa () {
+		$data['dataWarga'] = $this->cetakModel->kelompokDewasa();
+		$status = array('cetak' => 2);
+		$this->session->set_userdata($status);
+		$this->load->view('admin/masterAdminView', $data);
 	}
 }

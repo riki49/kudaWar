@@ -1,17 +1,27 @@
 <?php
-  $id="";
-  $harga="";
-  $tgl_produksi="";
-  $jumlah="";
-  $level ="";
-  $namaproduk = "";
-  if (isset($m_produk)){
-    $id=$m_produk->id;
-    $harga=$m_produk->harga;
-    $jumlah=$m_produk->jumlah;
-    $tgl_produksi=$m_produk->tgl_produksi;
-    $level = $m_produk->level;
-    $namaproduk = $m_produk->nama;
+  $nik="";
+  $nama="";
+  $kelamin="";
+  $tempat="";
+  $tanggal ="";
+  $alamat = "";
+  $rt = "";
+  $rw = "";
+  $status = "";
+  $pekerjaan = "";
+  $agama = "";
+  if (isset($dataWarga)){
+    $nik=$dataWarga->nik;
+    $nama=$dataWarga->nama;
+    $kelamin = $dataWarga->kelamin; 
+    $tempat=$dataWarga->tempat;
+    $tanggal=$dataWarga->tanggal;
+    $alamat=$dataWarga->alamat;
+    $rt=$dataWarga->rt;
+    $rw=$dataWarga->rw;
+    $status=$dataWarga->status;
+    $pekerjaan=$dataWarga->pekerjaan;
+    $agama=$dataWarga->agama;
   }
 
 $nama = $_SESSION['nama'];
@@ -54,37 +64,22 @@ $nama = $_SESSION['nama'];
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>H</b>FD</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Husnudzon</b> Food</span>
+      <span class="logo-lg"><b>KudaWar</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          
-          <li class="dropdown notifications-menu">
-            
-            
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            
-            
-          </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url()?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $nama ?></span>
+              <span class="hidden-xs"><?php echo $nama; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -92,7 +87,7 @@ $nama = $_SESSION['nama'];
                 <img src="<?php echo base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $nama ?>
+                  <?php echo $nama; ?>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -116,23 +111,78 @@ $nama = $_SESSION['nama'];
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
-    <?php 
-        $this->load->view('user/admin/menu')
-     ?>
+<!--     <?php 
+        // $this->load->view('admin/menu')
+     ?> -->
+
+
+      <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="<?php echo base_url()?>assets/dist/img/user2-160x160.jpg" 
+              class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p><?php echo $nama ?></p>
+            </div>
+          </div>
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu" data-widget="tree">
+            <!--  -->
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-cc"></i> <span>Urutkan Data Warga</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url("sorting/sortingAge") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
+                <li><a href="<?php echo base_url("sorting/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-clone"></i> <span>Kelompokan data Warga</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url()?>laporan/readUser"><i class="fa fa-circle-o"></i> Anak dan Remaja</a></li>
+                <li ><a href="<?php echo base_url()?>laporan/readTransaksi"><i class="fa fa-circle-o"></i> Dewasa</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-gears"></i> <span>Pengaturan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li ><a href="<?php echo base_url('admin/editDashboard') ?>"><i class="fa fa-circle-o"></i>Edit Dashboard Public</a></li>
+                <li ><a href="<?php echo base_url()?>admin/editProfil"><i class="fa fa-circle-o"></i>Edit akun</a></li>
+              </ul>
+            </li>    
+        </section>
+
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit Produk
+        Tambah Warga Baru
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('') ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Produk</li>
+        <li><a href="<?php echo base_url('admin') ?>"><i class="fa fa-dashboard"></i> admin</a></li>
+        <li class="active">tambah</li>
       </ol>
     </section>
 
@@ -141,63 +191,99 @@ $nama = $_SESSION['nama'];
       <div class="row">
 
         <div class="col-xs-12">
-        <a href="<?php echo base_url()?>admin/"><button type="button" class="btn bg-olive btn-flat margin">Kembali</button></a>
+        <a href="<?php echo base_url()?>admin"><button type="button" class="btn bg-olive btn-flat margin">Kembali</button></a>
             <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Form Produk</h3>
-            </div>
             <!-- /.box-header --> 
             <!-- form start -->
-            <form action="<?php echo base_url()?>produk/update/<?php echo $id ?>" method="post" class="form-horizontal">
+            <form action="<?php echo base_url()?>admin/create" method="post" class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Product ID</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Nomer Induk Kependudukan</label>
 
                   <div class="col-sm-6">
-                    <input  type="text" readonly class="form-control" name="id" value="<?php echo $id ?>" id="success" />
+                    <input  type="text" class="form-control" readonly name="nik" value="<?php echo $nik ?>"  id="success" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+                  <label class="col-sm-2 control-label">Nama Lengkap</label>
 
                   <div class="col-sm-6">
-                    <input type="date" name="tgl_produksi" value="<?php echo $tgl_produksi ?>" class="form-control" id="success" />
+                    <input type="text" name="nama"  class="form-control" value="<?php echo $dataWarga->nama?>" id="success" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Product Name</label>
+                  <label class="col-sm-2 control-label">Tempat Lahir</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="nama" value="<?php 
-                    echo $namaproduk ?>" readonly class="form-control" id="success" />
+                    <input type="text" value="<?php echo $dataWarga->tempat ?>" name="tempat"  class="form-control" id="success" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Tanggal Lahir</label>
+
+                  <div class="col-sm-6">
+                    <input type="date" value="<?php echo $dataWarga->tanggal?>" name="tanggal"  class="form-control" id="success" />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Level</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Kelamin</label>
+
                   <div class="col-sm-6">
-                    <input type="text" name="level" value="<?php 
-                    echo $level ?>" readonly class="form-control" id="success" />
+                    <select name="kelamin" class="form-control" id="success">
+                        <option value="<?php echo $dataWarga->kelamin ?>"><?php echo $dataWarga->kelamin ?></option> 
+                        <option value="pria">Pria</option> 
+                        <option value="wanita">Wanita</option>    
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Price</label>
+                  <label class="col-sm-2 control-label">Alamat</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="harga" value="<?php echo $harga ?>"  class="form-control" id="success" />
+                    <input type="text" name="alamat"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">RT</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="rt"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">RW</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" name="rw"  class="form-control" id="success" />
+                  </div>
+                </div><div class="form-group">
+                  <label class="col-sm-2 control-label">Status</label>
+
+                   <div class="col-sm-6">
+                    <select name="status" class="form-control" id="success">
+                        <option value="belum menikah">Belum Kawin</option> 
+                        <option value="kawin">Kawin</option>    
+                        <option value="cerai">Cerai</option>    
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Stock saat ini</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Pekerjaan</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="jumlah" value="<?php echo $jumlah ?>" readonly class="form-control" id="success" />
+                    <input type="text" name="pekerjaan" class="form-control" id="success" />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Tambah Stock baru</label>
 
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Agama</label>
                   <div class="col-sm-6">
-                    <input type="text" name="baru" placeholder="jumlah stok baru"  class="form-control" id="success" />
+                    <select name="agama" class="form-control" id="success">
+                      <option value="islam">Islam</option> 
+                      <option value="kristen">Kristen</option> 
+                      <option value="hindu">Hindu</option> 
+                      <option value="budha">Budha</option> 
+                      <option value="konghucu">Konghucu</option> 
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -269,5 +355,20 @@ $nama = $_SESSION['nama'];
 
 <script src="<?php echo base_url()?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 </html>
+
