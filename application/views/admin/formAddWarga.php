@@ -115,7 +115,7 @@ $nama = $_SESSION['nama'];
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url("sorting/sortingAge") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
-                <li><a href="<?php echo base_url("sorting/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
+                <li><a href="<?php echo base_url("sorting/sortingName") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
               </ul>
             </li>
 
@@ -235,8 +235,8 @@ $nama = $_SESSION['nama'];
 
                    <div class="col-sm-6">
                     <select name="status" class="form-control" id="success">
-                        <option value="belum menikah">Belum Kawin</option> 
-                        <option value="kawin">Kawin</option>    
+                        <option value="belum menikah">Belum menikah</option> 
+                        <option value="menikah">menikah</option>    
                         <option value="cerai">Cerai</option>    
                     </select>
                   </div>

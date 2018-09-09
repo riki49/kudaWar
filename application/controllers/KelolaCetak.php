@@ -29,8 +29,8 @@ class KelolaCetak extends CI_Controller {
 		$this->session->set_userdata($status);
 		$this->load->view('admin/masterAdminView', $data);
 	}
-	public function sortingPlace () {
-		$data['dataWarga'] = $this->cetakModel->sortingPlace();
+	public function sortingName () {
+		$data['dataWarga'] = $this->cetakModel->sortingName();
 		$status = array('cetak' => 2);
 		$this->session->set_userdata($status);
 		$this->load->view('admin/masterAdminView', $data);

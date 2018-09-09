@@ -119,7 +119,7 @@ $total =0;
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url("kelolaCetak/sortingAge") ?>"><i class="fa fa-circle-o"></i>Berdasar Umur</a></li>
-                <li><a href="<?php echo base_url("kelolaCetak/sortingPlace") ?>"><i class="fa fa-circle-o"></i>Berdasar Tempat</a></li>
+                <li><a href="<?php echo base_url("kelolaCetak/sortingName") ?>"><i class="fa fa-circle-o"></i>Berdasar nama</a></li>
               </ul>
             </li>
 

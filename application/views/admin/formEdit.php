@@ -177,7 +177,7 @@ $nama = $_SESSION['nama'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tambah Warga Baru
+        edit data warga
         <small></small>
       </h1>
       <ol class="breadcrumb">
@@ -195,7 +195,7 @@ $nama = $_SESSION['nama'];
             <div class="box box-info">
             <!-- /.box-header --> 
             <!-- form start -->
-            <form action="<?php echo base_url()?>admin/create" method="post" class="form-horizontal">
+            <form action="<?php echo base_url()?>admin/update/<?php echo $nik ?>" method="post" class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Nomer Induk Kependudukan</label>
@@ -241,27 +241,29 @@ $nama = $_SESSION['nama'];
                   <label class="col-sm-2 control-label">Alamat</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="alamat"  class="form-control" id="success" />
+                    <input type="text" name="alamat"  class="form-control" value="<?php echo $dataWarga->alamat ?>" id="success" />
                   </div>
                 </div><div class="form-group">
                   <label class="col-sm-2 control-label">RT</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="rt"  class="form-control" id="success" />
+                    <input type="text" name="rt" value="<?php echo $dataWarga->rt ?>" class="form-control" id="success" />
                   </div>
                 </div><div class="form-group">
                   <label class="col-sm-2 control-label">RW</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="rw"  class="form-control" id="success" />
+                    <input type="text" name="rw" value="<?php echo $dataWarga->rw ?>" class="form-control" id="success" />
                   </div>
                 </div><div class="form-group">
                   <label class="col-sm-2 control-label">Status</label>
 
                    <div class="col-sm-6">
                     <select name="status" class="form-control" id="success">
-                        <option value="belum menikah">Belum Kawin</option> 
-                        <option value="kawin">Kawin</option>    
+
+                        <option value="<?php echo $dataWarga->status ?>"><?php echo $dataWarga->status ?></option> 
+                        <option value="belum menikah">Belum menikah</option> 
+                        <option value="nikah">nikah</option>    
                         <option value="cerai">Cerai</option>    
                     </select>
                   </div>
@@ -270,7 +272,7 @@ $nama = $_SESSION['nama'];
                   <label for="inputEmail3" class="col-sm-2 control-label">Pekerjaan</label>
 
                   <div class="col-sm-6">
-                    <input type="text" name="pekerjaan" class="form-control" id="success" />
+                    <input type="text" name="pekerjaan" value="<?php echo $dataWarga->pekerjaan?>" class="form-control" id="success" />
                   </div>
                 </div>
 
@@ -278,6 +280,7 @@ $nama = $_SESSION['nama'];
                   <label for="inputEmail3" class="col-sm-2 control-label">Agama</label>
                   <div class="col-sm-6">
                     <select name="agama" class="form-control" id="success">
+                      <option value="<?php echo $dataWarga->agama ?>"><?php echo $dataWarga->agama?></option> 
                       <option value="islam">Islam</option> 
                       <option value="kristen">Kristen</option> 
                       <option value="hindu">Hindu</option> 

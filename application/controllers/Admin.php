@@ -21,8 +21,7 @@ class Admin extends CI_Controller {
 		$data['dataWarga'] = $this->dataWargaModel->read();
 		$this->load->view('admin/masterAdminView',$data);
 	}
-	public function create()
-	{
+	public function create() {
 		if ($this->input->post()){
 			$this->dataWargaModel->create();
 			redirect('admin');
@@ -30,10 +29,10 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/formAddWarga');
 		}
 	}
-	public function update($nik)  {
+	public function update($nik) {
 		if ($this->input->post()){
-			$this->dataWargaModel->updateWarga($nik);
-			redirect('admin/updateWarga');
+			$this->dataWargaModel->update($nik);
+			redirect('admin');
 		} else {
 			$data['dataWarga']=$this->dataWargaModel->detailWarga($nik);
 			$this->load->view('admin/formEdit',$data);
@@ -44,16 +43,8 @@ class Admin extends CI_Controller {
 		redirect ('admin');
 	}
 
-	public function editDashboard() {
-		$this->load->view('user/admin/formEditDashboard');	
-	}
 
-	public function readMail() {
-		$inbox['mail'] = $this->mailModel->adminReadMail();
-		$this->load->view('user/admin/masterMail', $inbox);
-	}
-
-	public function cetak($status){
+	public function cetak($status) {
 		ob_start();
 		$data;
 		if ($status == 0) {
@@ -61,7 +52,7 @@ class Admin extends CI_Controller {
 		} else if ($status == 1) {
 			$data['report'] = $this->cetakModel->sortingAge();
 		} else if ($status == 2) {
-			$data['report'] = $this->cetakModel->sortingPlace();
+			$data['report'] = $this->cetakModel->sortingName();
 		} else if ($status == 3) {
 			$data['report'] = $this->cetakModel->sortingPlace();
 		}
@@ -73,6 +64,18 @@ class Admin extends CI_Controller {
 		$pdf = new HTML2PDF('L','A4','en');
 		$pdf->WriteHTML($html);
 		$pdf->Output('Laporan Data Transaksi.pdf', 'P');
+	}
+
+
+	public function hitungTanggal() {
+		$data = $this->db->query('select * from warga')->result();
+		$sekarang = date('d + m  y');
+		foreach ($data as $lahir) {
+			$lahir = date(strtotime($lahir->tanggal));
+			// echo "umur".$sekarang->$diff($lahir->tanggal)->y."<br>";
+			echo $lahir." ";
+		}
+
 	}
 
 

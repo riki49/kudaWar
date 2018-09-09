@@ -7,15 +7,17 @@ class cetakModel extends CI_Model{
     	return $query->result();
 	}
 
-	function sortingPlace(){
-		$this->db->order_by('rt', 'rw', 'ASC');
+	function sortingName(){
+		$this->db->order_by('nama', 'ASC');
     	$query = $this->db->get('warga');
     	return $query->result();
 	}
 
 	function kelompokDewasa(){
-			// $query = $this->db->select(*)->where('status' => 'nikah' )->get('warga')->result();
-	    	// $this->db->get('warga');
+		$nik = '41155050140004';
+		$this->db->where('nik',$nik);
+		// $this->db->get('warga');
+		$query=$this->db->get('warga');
 	    	return $query->result();
 	}
 
