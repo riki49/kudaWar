@@ -11,10 +11,10 @@
     </style>
 <!--css-->
 <?php
-        foreach($data as $data){
-            $merk[] = $data->merk;
-            $stok[] = (float) $data->stok;
-        }
+        // foreach($data as $data){
+        //     $merk[] = $data->merk;
+        //     $stok[] = (float) $data->stok;
+        // }
         // $kalender = $_SESSION['kalender'];
 ?>
 
@@ -392,24 +392,7 @@ Lokasi :  Desa Sukamenak</div>
 
 
 <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var lokasi_saya= {lat: -6.591778, lng: 106.805965};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: lokasi_saya
-
-        });
-        var marker = new google.maps.Marker({
-          position: lokasi_saya,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://www.google.com/maps/place/Sukamenak,+Margahayu,+Bandung,+West+Java,+Indonesia/@-6.970998,107.584687,12732m/data=!3m1!1e3!4m5!3m4!1s0x2e68e928182fa055:0x4336b4144186c7af!8m2!3d-6.971678!4d107.5845418?hl=en-US">
-    </script>
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=sukamenak&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de">webdesign agentur</a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
 
 <!-- footer -->
 <?php 

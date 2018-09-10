@@ -21,18 +21,18 @@ class Welcome extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_grafik');
+		// $this->load->model('m_grafik');
 	}
 	public function index()
 	{
-		$x['data']=$this->m_grafik->get_data_stok();
-		$this->load->view('public/public',$x);
+		// $x['data']=$this->m_grafik->get_data_stok();
 		$this->load->library('calendar');
 
         $kalender =  $this->calendar->generate();
         
         $data = array('kalender' => $kalender);
         $this->session->set_userdata($data);
+		$this->load->view('public/public', $data);
 	}
 
 }

@@ -71,9 +71,10 @@ class Admin extends CI_Controller {
 		$data = $this->db->query('select * from warga')->result();
 		$sekarang = date('d + m  y');
 		foreach ($data as $lahir) {
-			$lahir = date(strtotime($lahir->tanggal));
+			$lahir = date(strtotime($lahir->nik));
 			// echo "umur".$sekarang->$diff($lahir->tanggal)->y."<br>";
-			echo $lahir." ";
+			// echo $lahir." ";
+			var_dump(date(strtotime($lahir)));
 		}
 
 	}
