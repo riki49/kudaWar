@@ -5,6 +5,7 @@ $today = new DateTime('today');
 $CI =& get_instance();
 $CI->load->library('hitungUmur');
 $total =0;
+$today = new DateTime();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@ $total =0;
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>H</b>FD</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Husnudzon</b> food</span>
+      <span class="logo-lg"><b>KUDAWAR</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -90,12 +91,6 @@ $total =0;
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-<!--     <?php 
-        // $this->load->view('admin/menu')
-     ?> -->
-
-
       <section class="sidebar">
           <!-- Sidebar user panel -->
           <div class="user-panel">
@@ -135,39 +130,12 @@ $total =0;
                 <li ><a href="<?php echo base_url()?>kelolaCetak/kelompokDewasa"><i class="fa fa-circle-o"></i> Dewasa</a></li>
               </ul>
             </li>
-
-            <!-- <li class="treeview"> -->
-              <!-- <a href="#"> -->
-                <!-- <i class="fa fa-gears"></i> <span>Pengaturan</span> -->
-                <!-- <span class="pull-right-container"> -->
-                  <!-- <i class="fa fa-angle-left pull-right"></i> -->
-                <!-- </span> -->
-              <!-- </a> -->
-              <!-- <ul class="treeview-menu"> -->
-                <!-- <li ><a href="<?php echo base_url()?>admin/editProfil"><i class="fa fa-circle-o"></i>Edit akun</a></li> -->
-              <!-- </ul> -->
-            <!-- </li>     -->
         </section>
-
-
-
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        data warga
-        <small></small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('admin') ?>">
-        <i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">data warga</li> 
-      </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
@@ -177,6 +145,15 @@ $total =0;
         <a href="<?php echo base_url()?>admin/create"><button 
         type="button" class="btn bg-olive btn-flat margin">
         tambah warga</button></a>
+        <a href="<?php echo base_url()?>admin/create"><button 
+        type="button" class="btn bg-olive btn-flat margin">
+        data warga tetap</button></a>
+        <a href="<?php echo base_url()?>admin/tetap"><button 
+        type="button" class="btn bg-olive btn-flat margin">
+        data warga pindahan</button></a>
+        <a href="<?php echo base_url()?>admin/create"><button 
+        type="button" class="btn bg-olive btn-flat margin">
+        data warga meninggal</button></a>
         <a href="<?php echo base_url()?>admin/cetak/<?php echo $cetak;?>"><button 
         type="button" class="btn bg-olive btn-flat margin">
         cetak</button></a>
@@ -188,18 +165,19 @@ $total =0;
 
             <!-- /.box-header -->
             <!-- <div class="box-body"> -->
-              <table >
-                <thead>
-                <tr>
-                    <th class="col-md-1">NIK</th>
-                    <th class="col-md-1">Nama</th>
-                    <th class="col-md-1">kelamin</th>
-                    <th class="col-md-1">TTL</th>
-                    <th class="col-md-1">alamat</th>
-                    <th class="col-md-1">RT/RW</th>
-                    <th class="col-md-1">status</th>
-                    <th class="col-md-1">Pekerjaan</th>
-                    <th class="col-md-1">Agama</th>
+              <table style="border: 1px solid black;" >
+                <thead style="border: 1px solid black;">
+                <tr style="border: 1px solid black;">
+                    <th style="border: 1px solid black;" class="col-md-1">NIK</th>
+                    <th style="border: 1px solid black;" class="col-md-1">Nama</th>
+                    <th style="border: 1px solid black;" class="col-md-1">kelamin</th>
+                    <th style="border: 1px solid black;" class="col-md-1">TTL</th>
+                    <th style="border: 1px solid black;" class="col-md-1">alamat</th>
+                    <th style="border: 1px solid black;" class="col-md-1">RT/RW</th>
+                    <th style="border: 1px solid black;" class="col-md-1">umur</th>
+                    <th style="border: 1px solid black;" class="col-md-1">status</th>
+                    <th style="border: 1px solid black;" class="col-md-1">Pekerjaan</th>
+                    <th style="border: 1px solid black;" class="col-md-1">Agama</th>
                     <th class="col-md-1">pilihan</th>
                 </tr>
                 </thead>
@@ -207,27 +185,29 @@ $total =0;
                 <?php
                 foreach ($dataWarga as $dataWarga) : 
                 ?>
+                <?php $biday = new DateTime($dataWarga->tanggal); $diff = $today->diff($biday); ?>
                     <tr>
-                        <td><?=$dataWarga->nik?></td>
-                        <td><?=$dataWarga->nama?></td>
-                        <td><?=$dataWarga->kelamin?></td>
-                        <td><?=$dataWarga->tempat.",".date('d/m/Y', strtotime($dataWarga->tanggal))?></td>
-                        <td><?=$dataWarga->alamat?></td>
-                        <td><?=$dataWarga->rt."/".$dataWarga->rw?></td>
-                        <td><?=$dataWarga->status?></td>
-                        <td><?=$dataWarga->pekerjaan?></td>
-                        <td><?=$dataWarga->agama?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->nik?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->nama?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->kelamin?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->tempat.",".date('d/m/Y', strtotime($dataWarga->tanggal))?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->alamat?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->rt."/".$dataWarga->rw?></td>
+                        <td style="border: 1px solid black;"><?=$diff->y; ?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->status?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->pekerjaan?></td>
+                        <td style="border: 1px solid black;"><?=$dataWarga->agama?></td>
                         <td>
                           <?php $total = $total + 1; ?>
 
-                            <a href="<?php echo base_url()?>admin/update/<?php echo $dataWarga->nik;?>" class="btn btn-warning">update</a>
-                            <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='<?php echo base_url()?>admin/delete/<?php echo $dataWarga->nik;?>'}" class="btn btn-danger">Hapus</a>
+                            <a href="<?php echo base_url()?>admin/update/<?php echo $dataWarga->nik;?>">update</a>
+                            <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='<?php echo base_url()?>admin/delete/<?php echo $dataWarga->nik;?>'}" >Hapus</a>
                         </td>
                     </tr>
                    <?php endforeach; ?>
                 </tbody>
               </table>
-              <div align="right" style="padding-right: 40%"><?php echo "jumlah warga : ".$total; ?></div>
+              <div align="right" style="font-size: 30; font-weight: bold; padding-right: 40%"><?php echo "jumlah warga : ".$total; ?></div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -240,9 +220,10 @@ $total =0;
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php 
-    $this->load->view('public/footerUser')
-   ?>
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+    </div>
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

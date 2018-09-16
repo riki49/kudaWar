@@ -2,19 +2,16 @@
 
 class Login extends CI_Controller {
 
-public function __construct()
-{
-parent::__construct();
-$this->load->model('loginmodel');
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('loginmodel');
 
-}
+	}
 
 	public function index() {
-		$this->read();
+		 $this->load->view('login');
 	}
-	public function read() {
-		 $this->load->view('public/login');
-	}
+
 	public function doLogin() {
 		if($this->input->post()){
 			$id = $this->input->post('username');
@@ -31,12 +28,13 @@ $this->load->model('loginmodel');
 				redirect('admin');
 			} else {
 			redirect('Login');
+			}
 		}
 	}
-}
+
 	public function doLogout(){
-	$this->session->sess_destroy();
-	redirect('');
+		$this->session->sess_destroy();
+		redirect('');
 	}
 }
 ?>

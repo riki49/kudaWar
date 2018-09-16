@@ -20,7 +20,7 @@ th {
     text-align: left;
     padding: 8px;
     color: #ffffff;
-    background-color: #000000;
+    /*background-color: #000000;*/
 }
 tr:nth-child(even) {
     background-color: #dddddd;
@@ -29,12 +29,17 @@ tr:nth-child(even) {
 </style>
 </head>
 <body> 
+  <table id="t01" align="center">
+    <tr>
+      <th style="border: none;"><img src="<?php echo base_url() ?>/assets/images/ok.png" width="100" ></th>
+      <th style="border: none; color: black" ><div>Laporan Warga Desa</div></th>
+    </tr>
+  </table>
   <div align="center">
-    <img src="<?php echo base_url() ?>/assets/images/ok.png" width="100" >
   </div>
     
 <hr>
-<h3 align="center">Laporan Warga Desa
+<h3 align="center">
 </h3><br>
 <table id="t01" align="center">
   <tr align="center">
@@ -50,6 +55,7 @@ tr:nth-child(even) {
 
  </tr>
   <?php 
+  $total=0;
     foreach ($report as $key) :   
   ?>
   <tr>
@@ -63,10 +69,10 @@ tr:nth-child(even) {
   <td><?php echo $key->pekerjaan?></td>
   <td><?php echo $key->agama?></td>
 
+  <?php $total = $total + 1; ?>
   </tr>
   <?php endforeach; ?>
-  
+  <td style="border: none;"><?php echo "total warga  : ".$total; ?></td>
 </table>
-
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 class cetakModel extends CI_Model{
 	function sortingAge(){
-		$this->db->order_by('tanggal', 'ASC');
+		$this->db->order_by('tanggal', 'DESC');
     	$query = $this->db->get('warga');
     	return $query->result();
 	}

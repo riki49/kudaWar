@@ -65,45 +65,5 @@ class Admin extends CI_Controller {
 		$pdf->WriteHTML($html);
 		$pdf->Output('Laporan Data Transaksi.pdf', 'P');
 	}
-
-
-	public function hitungTanggal() {
-		$data = $this->db->query('select * from warga')->result();
-		$sekarang = date('d + m  y');
-		foreach ($data as $lahir) {
-			$lahir = date(strtotime($lahir->nik));
-			// echo "umur".$sekarang->$diff($lahir->tanggal)->y."<br>";
-			// echo $lahir." ";
-			var_dump(date(strtotime($lahir)));
-		}
-
-	}
-
-
-	// public function editProfil() {
-	// 	$id = $this->session->userdata('id');
-	// 	$detail = $this->akunmodel->readDetaildUser($id);
-
-	// 	if ($this->input->post()){	
-	// 		if ($detail->password == $this->input->post('password')) {
-	// 			$this->akunmodel->updateUser($id);	
-	// 			$this->session->userdata('password');
-	// 			$this->session->sess_destroy();
-	// 			$data_session = array(
-	// 			'nama' => $detail->username,
-	// 			'status' => TRUE,
-	// 			'id'=> $detail->id,
-	// 			'password'=> $detail->password,
-	// 			'email' => $detail->email
-	// 			);
-	// 			$this->session->set_userdata($data_session);
-	// 		echo "<script>alert('Sukses update User');location.href='http://localhost/food/admin'</script>";
-	// 		} else {
-	// 			echo "<script>alert('password lama salah');location.href='http://localhost/food/admin/editProfil'</script>";
-	// 		}
-	// 	}else{
-	// 		$this->load->view('user/admin/formEditProfil');
-	// 	}
-	// }
 }
 
